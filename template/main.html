@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ .PageTitle }}</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .todo-list {
+        width: 400px;
+        height: auto;
+        background-color: #fefefe;
+      }
+
+      .todo-list li {
+        padding: 15px 12px;
+        margin: 5px auto;
+        color: #bebebe;
+      }
+
+      .todo-list .completed {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="todo-list">
+      {{ range .TodoList }} {{ if .IsCompleted }}
+      <li class="completed">{{ .Title }}</li>
+      {{ else }}
+      <li>{{ .Title }}</li>
+      {{ end }} {{ end }}
+    </ul>
+  </body>
+</html>
